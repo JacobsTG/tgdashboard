@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Current Conditions</h2>
+    </div>
+    <div class="panel-body">
+        <p class="icon"><i ng-class="getIconClass(weather.currently.icon)"></i></p>
+        <p class="temp">{{weather.currently.temperature}}</p>
+        <p>{{weather.currently.summary}}</p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Weekly Forecast</h2>
+    </div>
+    <div class="panel-body table-responsive">
+        <table class="table borderless">
+            <tr>
+                <td class="col-8-equal" ng-repeat="day in weather.daily.data">
+                    <h3>{{day.time * 1000 | date:'EEE'}}</h3>
+                    <p class="icon"><i ng-class="getIconClass(day.icon)"></i></p>
+                    <p><span class="high temp">{{day.temperatureMax}}</span> | <span class="low temp">{{day.temperatureMin}}</span></p>
+                    <p>{{day.summary}}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

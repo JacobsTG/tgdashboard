@@ -1,12 +1,13 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('tgdashboard', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
+  'tgdashboard.view1',
+  'tgdashboard.weather',
+  'tgdashboard.version'
 ]).
-config(['$routeProvider', function($routeProvider) {
+
+config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
