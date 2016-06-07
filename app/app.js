@@ -5,6 +5,7 @@ angular.module('tgdashboard', [
   'ngRoute',
   'tgdashboard.view1',
   'tgdashboard.weather',
+  'tgdashboard.stockPrice',
   'tgdashboard.version'
 ]).
 
