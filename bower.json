@@ -1,19 +1,18 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "name": "tgdashboard",
+  "description": "An Angular.js-based corporate dashboard",
+  "version": "0.1.0",
+  "homepage": "https://github.com/JacobsTG/tgdashboard",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "angular": "~1.4.0",
-    "angular-route": "~1.4.0",
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "bootstrap": "^3.3.6",
     "angular-resource": "^1.5.6",
-    "weather-icons": "^2.0.10"
+    "weather-icons": "^2.0.10",
+    "angular-ui-router": "^0.3.1"
   },
   "resolutions": {
     "angular": "~1.4.0"

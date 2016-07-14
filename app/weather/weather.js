@@ -1,16 +1,9 @@
 'use strict';
 
-angular.module('tgdashboard.weather', ['ngRoute', 'ngResource'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/weather', {
-        templateUrl: 'weather/weather.html',
-        controller: 'WeatherController'
-    });
-}])
+angular.module('tgdashboard.weather', ['ngResource'])
 
 .controller('WeatherController', ['$scope', '$resource', function($scope, $resource) {
-    var apiKey = 'REPLACE ME WITH THE REAL API KEY!';
+    var apiKey = '35f0e4b226c891aba95107313f68443d';
     var lati = 35.394320;
     var longi = -86.184506;
     var url = 'https://api.forecast.io/forecast/' + apiKey + '/' + lati + ',' + longi;
@@ -37,8 +30,7 @@ angular.module('tgdashboard.weather', ['ngRoute', 'ngResource'])
     );
 
     $scope.getIconClass = function(icon) {
-        var iconClass = "icon wi ";
-        console.log('icon = ' + icon);
+        var iconClass = "icon icon-lg wi ";
 
         switch (icon) {
             case 'day-sunny':

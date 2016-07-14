@@ -12,41 +12,41 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-kVo/Eh0sv7ZdiwZK32nRsp1FrDT3sLRLx3zVpSSTI9UdO5H02LJNLBg5F1gwvKg0" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.min.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/weather">Weather</a></li>
-    <li><a href="#/stockPrice">Stock Price</a></li>
-  </ul>
-
   <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
 <div class="container-fluid">
-  <div ng-view></div>
-</div>
+    <div class="card-columns">
+      <div ui-view="top-left"></div>
+      <div ui-view="top-right"></div>
+      <div ui-view="bottom-left"></div>
+      <div ui-view="bottom-right"></div>
+    </div>
+  </div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js"></script>
-  <script src="app.js"></script>
-  <script src="view1/view1.js"></script>
-  <script src="weather/weather.js"></script>
-  <script src="stockPrice/stockPrice.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/tether/dist/js/tether.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js"></script>
+<script src="app.js"></script>
+<script src="weather/weather.js"></script>
+<script src="stockPrice/stockPrice.js"></script>
+<script src="picture/picture.js"></script>
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
 </body>
 </html>

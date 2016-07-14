@@ -1,13 +1,6 @@
 'use strict';
 
-angular.module('tgdashboard.stockPrice', ['ngRoute', 'ngResource'])
-
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/stockPrice', {
-        templateUrl: 'stockPrice/stockPrice.html',
-        controller: 'StockPriceController'
-    });
-}])
+angular.module('tgdashboard.stockPrice', ['ngResource'])
 
 .controller('StockPriceController', ['$scope', '$resource', function($scope, $resource) {
 
