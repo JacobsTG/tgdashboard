@@ -4,5 +4,9 @@
   </div>
   <div class="card-block">
     <p class="stock-price">Last Quote: {{lastTradePriceOnly}}</p>
+    <div>Last 5 Close Prices:</div>
+    <ul>
+      <li ng-repeat="price in priceHistory | limitTo: 5">{{price.Close}}</li>
+    </ul>
   </div>
 </div>
