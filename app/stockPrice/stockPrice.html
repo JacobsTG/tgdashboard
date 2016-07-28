@@ -8,5 +8,7 @@
     <ul>
       <li ng-repeat="price in priceHistory | limitTo: 5">{{price.Close}}</li>
     </ul>
+
+    <canvas id="line" class="chart chart-line" chart-data="historicalclosingprice" chart-labels="historicalclosingdates"></canvas> 
   </div>
 </div>

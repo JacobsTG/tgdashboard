@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('tgdashboard.stockPrice', ['ngResource'])
+angular.module('tgdashboard.stockPrice', ['ngResource', 'chart.js'])
+
 
 .controller('StockPriceController', ['$scope', '$resource', function($scope, $resource) {
 
@@ -36,10 +37,30 @@ angular.module('tgdashboard.stockPrice', ['ngResource'])
 
   //http://query.yahooapis.com/v1/public/yql?q=select * from yahoo.finance.historicaldata where symbol = "YHOO" and startDate = "2014-02-11" and endDate = "2014-02-18"&diagnostics=true&env=store://datatables.org/alltableswithkeys
 
-  // Set up the request address and query string
-  queryString = encodeURIComponent("select * from yahoo.finance.historicaldata where symbol in ('" + symbol + "') and startDate = '2016-01-01' and endDate = '2016-07-21'");
-  var historyurl = baseUrl + '?q=' + queryString + '&format=json&diagnostics=true&env=http://datatables.org/alltables.env';
+  var d = new Date();
+  var mymonth = d.getMonth();
+  mymonth = mymonth + 1;
+  if(mymonth < 10)
+  {
+    mymonth = '0' + mymonth;
+  }
+  var todaydate = d.getFullYear() + "-" + mymonth + "-" + d.getDate();
+  //console.log(todaydate);
 
+  var monthago = new Date();
+  monthago.setDate(monthago.getDate() - 30);
+  mymonth = monthago.getMonth();
+  mymonth = mymonth + 1;
+  if(mymonth < 10)
+  {
+    mymonth = '0' + mymonth;
+  }
+  var monthagodate = monthago.getFullYear() + "-" + mymonth + "-" + monthago.getDate();
+  //console.log(monthagodate);
+  // Set up the request address and query string
+  queryString = encodeURIComponent("select * from yahoo.finance.historicaldata where symbol in ('" + symbol + "') and startDate = '" + monthagodate + "' and endDate = '" + todaydate + "'");
+  var historyurl = baseUrl + '?q=' + queryString + '&format=json&diagnostics=true&env=http://datatables.org/alltables.env';
+  //console.log(historyurl);
   // Set up a request using the $resource service
   var historyresource = $resource(historyurl, {
     callback: "JSON_CALLBACK"
@@ -54,6 +75,12 @@ angular.module('tgdashboard.stockPrice', ['ngResource'])
   historyresource.getHistory().$promise.then(
     function(data) {
       $scope.priceHistory = data.query.results.quote;
+      var historicalclosingprice = [];
+      var historicalclosingdates = [];
+      $.each(data.query.results.quote, function(i, quote){historicalclosingprice.push(quote.Close);});
+      $.each(data.query.results.quote, function(i,quote){historicalclosingdates.push(quote.Date);});
+      $scope.historicalclosingprice = historicalclosingprice.reverse();
+      $scope.historicalclosingdates = historicalclosingdates.reverse();
     },
     function(error) {
       // If something goes wrong with a JSONP request in AngularJS,
