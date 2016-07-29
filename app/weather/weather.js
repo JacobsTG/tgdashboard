@@ -20,6 +20,17 @@ angular.module('tgdashboard.weather', ['ngResource'])
     resource.getWeather().$promise.then(
         function(weather) {
             $scope.weather = weather;
+            var rainIntensity = [];
+            var minuteCount = [];
+            $.each(weather.minutely.data, function(i, data){rainIntensity.push(data.precipIntensity); minuteCount.push(i);});
+            //console.log(rainIntensity);
+            $scope.rainIntensity = rainIntensity;
+            $scope.minuteCount = minuteCount;
+
+            var rainProbability = [];
+            $.each(weather.minutely.data, function(i,data){rainProbability.push(data.precipProbability*100);});
+            console.log(rainProbability);
+            $scope.rainProbability = rainProbability;
         },
         function(error) {
             // If something goes wrong with a JSONP request in AngularJS,
