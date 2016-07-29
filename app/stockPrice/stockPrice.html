@@ -4,11 +4,11 @@
   </div>
   <div class="card-block">
     <p class="stock-price">Last Quote: {{lastTradePriceOnly}}</p>
-    <div>Last 5 Close Prices:</div>
+    <!-- <div>Last 5 Close Prices:</div>
     <ul>
       <li ng-repeat="price in priceHistory | limitTo: 5">{{price.Close}}</li>
-    </ul>
+    </ul> -->
 
-    <canvas id="line" class="chart chart-line" chart-data="historicalclosingprice" chart-labels="historicalclosingdates"></canvas> 
+    <canvas id="line" class="chart chart-line" chart-data="historicalclosingprice" chart-labels="historicalclosingdates"></canvas>
   </div>
 </div>
