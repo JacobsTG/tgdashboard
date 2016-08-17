@@ -1,17 +1,20 @@
-<div class="card shadow">
-  <div class="card-header">
-    <h3 class="card-title">Weekly Forecast</h3>
-  </div>
+<div class="card">
+  <div class="card-header">5-Day Forecast</div>
   <div class="card-deck-wrapper">
     <div class="card-deck">
-      <div class="card" ng-repeat="day in weather.daily.data | limitTo: 5" style="width:9rem;">
+
+      <div class="card borderless" ng-repeat="day in weather.daily.data | limitTo: 5">
         <div class="card-block">
-          <p class="card-text">{{day.time * 1000 | date:'EEE'}}</h5>
+          <div class="col-md-4">
             <p class="icon"><i ng-class="getIconClass(day.icon)"></i></p>
-            <p class="card-text"><span class="high temp">Hi: {{day.temperatureMax}}&deg;F</span><br /><span class="low temp">Lo: {{day.temperatureMin}}&deg;F</span></p>
-            <p class="card-text">{{day.summary}}</p>
+          </div>
+          <div class="col-md-8">
+            <h5 class="card-text">{{day.time * 1000 | date:'EEE'}}</h5>
+            <h5 class="card-text"><span class="high">Hi: {{day.temperatureMax}}&deg;F</span>     <span class="low">Lo: {{day.temperatureMin}}&deg;F</span></h5>
+            <h5 class="card-text">{{day.summary}}</h5>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

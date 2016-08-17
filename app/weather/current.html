@@ -1,19 +1,18 @@
-<div class="card shadow">
-  <div class="card-header">
-    <h3 class="card-title">Current Weather</h3>
-  </div>
+<div class="card">
+  <div class="card-header">Current Weather</div>
   <div class="card-block">
     <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3 text-center">
+      <div class="col-md-4 text-center">
         <i ng-class="getIconClass(weather.currently.icon)"></i>
         <h4>{{weather.currently.summary}}</h4>
       </div>
-      <div class="col-md-9">
-        <h4>Temperature: {{weather.currently.temperature}}&deg;F</h4>
-        <h4>Humidity: {{weather.currently.humidity*100}}%</h4>
+      <div class="col-md-8">
+        <h5>Temperature: {{weather.currently.temperature}}&deg;F</h5>
+        <h5>Humidity: {{weather.currently.humidity*100}}%</h5>
       </div>
     </div>
+    <br />
     <div class="row">
       <h4 class="text-center">Rain Probability for 1 hour</h4>
     </div>

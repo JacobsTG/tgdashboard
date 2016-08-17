@@ -1,5 +1,9 @@
 /* app css stylesheet */
 
+body {
+  margin-top: 15px;
+}
+
 .menu {
     list-style: none;
     border-bottom: 0.1em solid black;
@@ -36,5 +40,8 @@
   font-size: 84px;
 }
 .temp {
-  fon-size: 24px;
+  font-size:18px;
+}
+.borderless {
+  border: 0px;
 }

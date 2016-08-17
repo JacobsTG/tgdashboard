@@ -2,7 +2,7 @@
 
 angular.module('tgdashboard.weather', ['ngResource'])
 
-.controller('WeatherController', ['$scope', '$resource', function($scope, $resource) {
+.controller('WeatherController', ['$scope', '$resource', '$interval', function($scope, $resource, $interval) {
     var apiKey = '35f0e4b226c891aba95107313f68443d';
     var lati = 35.394320;
     var longi = -86.184506;
